@@ -4,7 +4,7 @@ import ActiveTypography from './ActiveTypography';
 function App() {
   return (
     <div className="App">
-      <ActiveTypography />
+      <ActiveTypography defaultText="This is default text"/>
     </div>
   );
 }
