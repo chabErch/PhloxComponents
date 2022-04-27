@@ -1,9 +1,11 @@
 import React from "react";
 import { TextField, Typography } from "@mui/material";
 
-export default function ActiveTypography({ defaultText }) {
-  const [isTextFieldOpen, setIsTextFieldOpen] = React.useState(false);
+export default function ActiveTypography({ defaultText, isOpen=false }) {
+  const [isTextFieldOpen, setIsTextFieldOpen] = React.useState(isOpen);
+
   const [inputText, setInputText] = React.useState("");
+
   const textRef = React.useRef("");
 
   React.useEffect(() => {
