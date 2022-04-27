@@ -1,9 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import ActiveTypography from './ActiveTypography';
 
 function App() {
   return (
     <div className="App">
+      <ActiveTypography />
     </div>
   );
 }
