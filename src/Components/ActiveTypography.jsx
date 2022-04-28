@@ -23,7 +23,7 @@ export default function ActiveTypography({ defaultText, isOpen = false }) {
   if (isTextFieldOpen) {
     return (
       <TextField
-      sx={{height:"20px"}}
+      sx={{width: 1}}
         defaultValue={inputText}
         inputRef={textRef}
         variant="standard"
