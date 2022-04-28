@@ -1,7 +1,13 @@
 import React from "react";
 import { TextField, Typography } from "@mui/material";
 
-export default function ActiveTypography({ defaultText, isOpen = false }) {
+export default function ActiveTypography({
+  defaultText,
+  isOpen = false,
+  width = 1,
+  typographyVariant = "body2",
+  textFieldVariant = "standard",
+}) {
   const [isTextFieldOpen, setIsTextFieldOpen] = React.useState(isOpen);
 
   const [inputText, setInputText] = React.useState(defaultText);
@@ -23,15 +29,18 @@ export default function ActiveTypography({ defaultText, isOpen = false }) {
   if (isTextFieldOpen) {
     return (
       <TextField
-      sx={{width: 1}}
+        sx={{ width: width }}
         defaultValue={inputText}
         inputRef={textRef}
-        variant="standard"
+        variant={textFieldVariant}
       ></TextField>
     );
   }
   return (
-    <Typography variant="body2" onDoubleClick={() => setIsTextFieldOpen(true)}>
+    <Typography
+      variant={typographyVariant}
+      onDoubleClick={() => setIsTextFieldOpen(true)}
+    >
       {inputText}
     </Typography>
   );
