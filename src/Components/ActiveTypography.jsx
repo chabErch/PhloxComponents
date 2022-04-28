@@ -14,7 +14,7 @@ export default function ActiveTypography({
 
   const textRef = React.useRef("");
 
-  //if click not in text field
+  // if click is not in text field
   React.useEffect(() => {
     const closeTextField = (e) => {
       if (!textRef.current.contains(e.target)) {
