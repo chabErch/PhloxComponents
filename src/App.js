@@ -14,7 +14,7 @@ function App() {
         место страницы вместо текстового поля будет отображаться введенный
         текст.
       </Typography>
-      <Paper sx={{ padding: 4, textAlign: "center", height: "20px" }}>
+      <Paper sx={{ padding: 4, textAlign: "center"}}>
         <ActiveTypography defaultText="This is default text" />
       </Paper>
     </div>
