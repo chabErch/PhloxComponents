@@ -21,7 +21,7 @@ export default function ActiveTypography({ defaultText, isOpen = false }) {
   }, []);
 
   if (isTextFieldOpen) {
-    return <TextField inputRef={textRef} variant="standard"></TextField>;
+    return <TextField defaultValue={inputText} inputRef={textRef} variant="standard"></TextField>;
   }
   return (
     <Typography variant="body2" onDoubleClick={() => setIsTextFieldOpen(true)}>
