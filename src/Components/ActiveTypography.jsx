@@ -33,6 +33,13 @@ export default function ActiveTypography({
         defaultValue={inputText}
         inputRef={textRef}
         variant={textFieldVariant}
+        autoFocus
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            setInputText(textRef.current.value);
+            setIsTextFieldOpen(false);
+          }
+        }}
       ></TextField>
     );
   }
