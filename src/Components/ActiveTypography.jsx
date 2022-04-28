@@ -8,7 +8,7 @@ export default function ActiveTypography({ defaultText, isOpen = false }) {
 
   const textRef = React.useRef("");
 
-  //if double click not in text field
+  //if click not in text field
   React.useEffect(() => {
     const closeTextField = (e) => {
       if (!textRef.current.contains(e.target)) {
