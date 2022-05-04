@@ -3,6 +3,14 @@ import { Paper, Typography } from "@mui/material";
 import ActiveTypography from "./Components/ActiveTypography";
 import ChipList from "./Components/ChipList";
 
+
+const options= [
+  { value: "ПЗ", label: "Практическое занятие" },
+  { value: "Л", label: "Лекция" },
+  { value: "ЛР", label: "Лабораторная работа" },
+]
+
+
 function App() {
   return (
     <div className="App">
@@ -28,7 +36,7 @@ function App() {
         соответствующий данному значению.
       </Typography>
       <Paper sx={{ padding: 4, textAlign: "center" }}>
-        <ChipList />
+        <ChipList items={options}/>
       </Paper>
     </div>
   );

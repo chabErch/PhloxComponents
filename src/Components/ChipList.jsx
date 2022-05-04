@@ -11,13 +11,10 @@ import {
 
 export default function ChipList({
   icon = null,
-  params = [
-    { value: "ПЗ", label: "Практическое занятие" },
-    { value: "Л", label: "Лекция" },
-    { value: "ЛР", label: "Лабораторная работа" },
-  ],
-  defaultValue = params[0],
+  items,
+  defaultValue = items[0],
   typographyVariant = "body2",
+  color = "#b39ddb",
 }) {
   const [listValue, setListValue] = React.useState(defaultValue.value);
   const [listLabel, setListLabel] = React.useState(defaultValue.label);
@@ -26,28 +23,34 @@ export default function ChipList({
   return (
     <ClickAwayListener onClickAway={(e) => setIsChipClick(false)}>
       <Chip
+        autoFocus
         icon={
-          icon === null ? (
-            <Avatar sx={{ background: "#ffffff" }}>
-              <FolderOutlinedIcon />
-            </Avatar>
-          ) : (
-            <Avatar sx={{ background: "#ffffff" }}>icon</Avatar>
-          )
+          <Avatar sx={{ background: "#ffffff", width: 24, height: 24 }}>
+            {icon === null ? (
+              <FolderOutlinedIcon sx={{ width: 16, height: 16 }} />
+            ) : (
+              icon
+            )}
+          </Avatar>
         }
-        sx={{ height: 1, padding: 1, borderRadius: 16 }}
+        style={{
+          height: 32,
+          padding: 0.4,
+          borderRadius: 16,
+          background: color,
+        }}
         label={
           isChipClick ? (
             <Autocomplete
               disableClearable
               defaultValue={listLabel}
-              options={params}
+              options={items}
               renderInput={(params) => (
                 <TextField sx={{ width: 0.9 }} {...params} variant="standard" />
               )}
-              sx={{ minWidth: 240 }}
+              sx={{ minWidth: 160 }}
               onInputChange={(event, inputLabel) =>
-                params.map(({ value, label }) => {
+                items.map(({ value, label }) => {
                   if (label === inputLabel) {
                     setListValue(value);
                     setListLabel(label);
@@ -60,7 +63,6 @@ export default function ChipList({
           )
         }
         onClick={() => setIsChipClick(true)}
-        style={{ background: "#b39ddb" }}
       />
     </ClickAwayListener>
   );
