@@ -40,7 +40,7 @@ export default function TimeText({
           /
         </Typography>
         <TextField
-          sx={{ width: "36px" }}
+          sx={{ width: "50px" }}
           defaultValue={targetHour}
           inputRef={timeRef}
           type="number"
@@ -48,7 +48,8 @@ export default function TimeText({
           variant="standard"
           onKeyPress={(e) => {
             if (e.key === "Enter") {
-              setTargetHour(timeRef.current.value);
+              if (timeRef.current.value === ""){setTargetHour("0");}
+              else{setTargetHour(timeRef.current.value);}
               setIsTimeFieldOpen(false);
             }
           }}
