@@ -18,10 +18,10 @@ export default function ChipList({
 }) {
   const [listValue, setListValue] = React.useState(defaultValue.value);
   const [listLabel, setListLabel] = React.useState(defaultValue.label);
-  const [isChipClick, setIsChipClick] = React.useState(false);
+  const [isChipClicked, setIsChipClicked] = React.useState(false);
 
   return (
-    <ClickAwayListener onClickAway={(e) => setIsChipClick(false)}>
+    <ClickAwayListener onClickAway={(e) => setIsChipClicked(false)}>
       <Chip
         autoFocus
         icon={
@@ -40,7 +40,7 @@ export default function ChipList({
           background: color,
         }}
         label={
-          isChipClick ? (
+          isChipClicked ? (
             <Autocomplete
               disableClearable
               defaultValue={listLabel}
@@ -55,6 +55,7 @@ export default function ChipList({
                     setListValue(value);
                     setListLabel(label);
                   }
+                  return value;
                 })
               }
             />
@@ -62,7 +63,7 @@ export default function ChipList({
             <Typography variant={typographyVariant}>{listValue}</Typography>
           )
         }
-        onClick={() => setIsChipClick(true)}
+        onDoubleClick={() => setIsChipClicked(true)}
       />
     </ClickAwayListener>
   );
