@@ -15,7 +15,7 @@ export default function ChipList({
   defaultValue = items[0],
   typographyVariant = "body2",
   color = "#b39ddb",
-  setCurrentValue
+  setCurrentValue=null
 }) {
   const [listValue, setListValue] = React.useState(defaultValue.value);
   const [listLabel, setListLabel] = React.useState(defaultValue.label);
@@ -27,7 +27,7 @@ export default function ChipList({
       if (label === currentLabel) {
         setListValue(value);
         setListLabel(label);
-        setCurrentValue(value);
+        setCurrentValue !== null && setCurrentValue(value);
       }
     });
   };

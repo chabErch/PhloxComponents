@@ -11,7 +11,6 @@ const options = [
 ];
 
 function App() {
-  const [chipListValue, setChipListValue] = React.useState(null);
 
   return (
     <div className="App">
@@ -37,7 +36,7 @@ function App() {
         текст, соответствующий данному значению.
       </Typography>
       <Paper sx={{ padding: 4, textAlign: "center" }}>
-        <ChipList items={options} setCurrentValue={setChipListValue} />
+        <ChipList items={options} />
       </Paper>
     </div>
   );
