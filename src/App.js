@@ -13,6 +13,7 @@ const options = [
 function App() {
   const [chipListValue, setChipListValue] = React.useState(null);
 
+  const ref1 = React.createRef(null)
   return (
     <div className="App">
       <Typography textAlign="center" variant="h3">
@@ -37,7 +38,7 @@ function App() {
         текст, соответствующий данному значению.
       </Typography>
       <Paper sx={{ padding: 4, textAlign: "center" }}>
-        <ChipList items={options} valueSetter={setChipListValue} />
+        <ChipList items={options} ref={ref1} />
       </Paper>
     </div>
   );

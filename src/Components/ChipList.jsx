@@ -15,11 +15,20 @@ export default function ChipList({
   defaultValue = items[0],
   typographyVariant = "body2",
   color = "#b39ddb",
-  valueSetter
 }) {
   const [listValue, setListValue] = React.useState(defaultValue.value);
   const [listLabel, setListLabel] = React.useState(defaultValue.label);
   const [isChipClicked, setIsChipClicked] = React.useState(false);
+
+  const setNewData = (currentLabel = null) => {
+    if(currentLabel === null) currentLabel = listLabel;
+    items.map(({ value, label }) => {
+      if (label === currentLabel) {
+        setListValue(value);
+        setListLabel(label);
+      }
+    });
+  };
 
   return (
     <ClickAwayListener onClickAway={(e) => setIsChipClicked(false)}>
@@ -50,16 +59,13 @@ export default function ChipList({
                 <TextField sx={{ width: 0.9 }} {...params} variant="standard" />
               )}
               sx={{ minWidth: 160 }}
-              onInputChange={(event, inputLabel) =>
-                items.map(({ value, label }) => {
-                  if (label === inputLabel) {
-                    setListValue(value);
-                    setListLabel(label);
-                    valueSetter(value);
-                  }
-                  return value;
-                })
-              }
+              onInputChange={(event, currentLabel) => setNewData(currentLabel)}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  setNewData();
+                  setIsChipClicked(false);
+                }
+              }}
             />
           ) : (
             <Typography variant={typographyVariant}>{listValue}</Typography>
