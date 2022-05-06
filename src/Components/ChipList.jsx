@@ -58,7 +58,7 @@ export default function ChipList({
               defaultValue={listLabel}
               options={items}
               renderInput={(params) => (
-                <TextField sx={{ width: 0.9 }} {...params} variant="standard" />
+                <TextField {...params} variant="standard" />
               )}
               sx={{ minWidth: 160 }}
               onInputChange={(event, currentLabel) => setNewData(currentLabel)}
