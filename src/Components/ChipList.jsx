@@ -23,7 +23,7 @@ export default function ChipList({
 
   const setNewData = (currentLabel = null) => {
     if(currentLabel === null) currentLabel = listLabel;
-    items.map(({ value, label }) => {
+    items.forEach(({ value, label }) => {
       if (label === currentLabel) {
         setListValue(value);
         setListLabel(label);
