@@ -11,7 +11,8 @@ const options = [
 ];
 
 function App() {
-
+  const ref1 = React.useRef()
+  
   return (
     <div className="App">
       <Typography textAlign="center" variant="h3">
